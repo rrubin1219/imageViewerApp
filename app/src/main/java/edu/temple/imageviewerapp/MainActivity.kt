@@ -17,6 +17,13 @@ class MainActivity : AppCompatActivity() {
         val description = findViewById<TextView>(R.id.textView)
         val image = findViewById<ImageView>(R.id.image)
 
+        recycler.adapter = ImageAdapter(getImages())
+
+    }
+    fun getImages() : Array<ImageObject>{
+        val images = arrayOf(
+            ImageObject("Making Dinner", R.drawable.microwave)
+        )
     }
 }
 
