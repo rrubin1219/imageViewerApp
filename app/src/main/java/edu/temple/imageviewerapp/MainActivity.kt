@@ -1,12 +1,23 @@
 package edu.temple.imageviewerapp
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.image_activity)
+
+        val recycler = findViewById<RecyclerView>(R.id.recycler)
+        val description = findViewById<TextView>(R.id.textView)
+        val image = findViewById<ImageView>(R.id.image)
+
+
+
 
 
     }
