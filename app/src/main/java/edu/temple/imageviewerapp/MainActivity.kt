@@ -1,10 +1,11 @@
 package edu.temple.imageviewerapp
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -15,10 +16,6 @@ class MainActivity : AppCompatActivity() {
         val recycler = findViewById<RecyclerView>(R.id.recycler)
         val description = findViewById<TextView>(R.id.textView)
         val image = findViewById<ImageView>(R.id.image)
-
-
-
-
 
     }
 }

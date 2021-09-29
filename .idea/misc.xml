@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Programming/Android_Studio/Assignments/imageViewerApp/app/src/main/res/layout/image_activity.xml" value="0.1" />
+        <entry key="..\:/Programming/Android_Studio/Assignments/imageViewerApp/app/src/main/res/layout/image_activity.xml" value="0.264" />
+        <entry key="..\:/Programming/Android_Studio/Assignments/imageViewerApp/app/src/main/res/layout/image_layout.xml" value="0.15353260869565216" />
+        <entry key="..\:/Programming/Android_Studio/Assignments/imageViewerApp/app/src/main/res/layout/recycler_layout.xml" value="0.12" />
         <entry key="..\:/Programming/Android_Studio/imageViewerApp/app/src/main/res/layout/activity_main.xml" value="0.16893115942028986" />
-        <entry key="..\:/Programming/School Programming/Fall 2021/CIS 3515/Assignments/imageViewerApp/app/src/main/res/layout/image_activity.xml" value="0.33" />
       </map>
     </option>
   </component>
