@@ -1,31 +1,37 @@
-package edu.temple.imageviewerapp
-
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import edu.temple.imageviewerapp.ImageObject
+import edu.temple.imageviewerapp.R
 
-class ImageAdapter(private val _context: MainActivity, private val images: ArrayList<ImageObject>): RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
-        val imageView = LayoutInflater.from(_context).inflate(R.layout.recycler_layout, parent, false)
-        return ImageViewHolder(imageView)
-    }
-    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        val items = images[position]
-        holder.imageView.setImageResource(items.resourceId)
-        holder.textView.text = items.description
+class ImageAdapter(var _context: Context) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
-        holder.imageView.setOnClickListener {
-            Toast.makeText(_context, "You Clicked the it", Toast.LENGTH_SHORT).show()
-        }
-    }
-    override fun getItemCount() = images.size
+    var dataList = emptyList<ImageObject>()
 
-    class ImageViewHolder(Image: View) : RecyclerView.ViewHolder(Image) {
-        val imageView: ImageView= itemView.findViewById(R.id.imageView)
-        val textView: TextView = itemView.findViewById(R.id.textView)
+    internal fun setDataList(dataList: List<ImageObject>) {
+        this.dataList = dataList
     }
-}
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var image: ImageView = itemView.findViewById(R.id.image)
+        var title: TextView = itemView.findViewById(R.id.title)
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        var view = LayoutInflater.from(_context).inflate(R.layout.recycler_layout, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder:ViewHolder, position: Int) {
+        var data = dataList[position]
+
+        holder.title.text = data.title
+        holder.image.setImageResource(data.image)
+    }
+
+    override fun getItemCount() = dataList.size}

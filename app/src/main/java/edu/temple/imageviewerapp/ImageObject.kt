@@ -1,3 +1,3 @@
 package edu.temple.imageviewerapp
 
-data class ImageObject(val description: String, val resourceId: Int)
+data class ImageObject(val title: String, val image: Int)

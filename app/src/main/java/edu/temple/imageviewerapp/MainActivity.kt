@@ -1,23 +1,27 @@
-package edu.temple.imageviewerapp
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import edu.temple.imageviewerapp.ImageObject
+import edu.temple.imageviewerapp.R
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var  imageAdapter: ImageAdapter
+    private var items = ArrayList<ImageObject>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.image_activity)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recycler)
-        recyclerView.layoutManager = GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false)
-        recyclerView.adapter = ImageAdapter(this, getImages())
-    }
-    private fun getImages(): ArrayList<ImageObject> {
-        val items: ArrayList<ImageObject> = ArrayList()
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = GridLayoutManager(applicationContext,3)
+        recyclerView.adapter = ImageAdapter(applicationContext)
 
+        //add data
+        imageAdapter.setDataList(getItems())
+    }
+
+    private fun getItems() : ArrayList<ImageObject> {
         items.add(ImageObject("Making Dinner", R.drawable.microwave))
         items.add(ImageObject("Hide n' Seek", R.drawable.hide_n_seek))
         items.add(ImageObject("Laundry Day", R.drawable.laundry))
@@ -30,5 +34,7 @@ class MainActivity : AppCompatActivity() {
         items.add(ImageObject("Hard at Work", R.drawable.worker))
 
         return items
+
+
     }
 }
