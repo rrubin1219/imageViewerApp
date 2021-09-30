@@ -2,10 +2,8 @@ package edu.temple.imageviewerapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -13,54 +11,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.image_activity)
 
-        val recycler = findViewById<RecyclerView>(R.id.recycler)
-        val description = findViewById<TextView>(R.id.textView)
-        val image = findViewById<ImageView>(R.id.image)
-
-        recycler.adapter = ImageAdapter(getImages())
-
+        val recyclerView: RecyclerView = findViewById(R.id.recycler)
+        recyclerView.layoutManager = GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false)
+        recyclerView.adapter = ImageAdapter(this, getImages())
     }
-    fun getImages() : Array<ImageObject>{
-        val images = arrayOf(
-            ImageObject("Making Dinner", R.drawable.microwave)
-        )
+    private fun getImages(): ArrayList<ImageObject> {
+        val items: ArrayList<ImageObject> = ArrayList()
+
+        items.add(ImageObject("Making Dinner", R.drawable.microwave))
+        items.add(ImageObject("Hide n' Seek", R.drawable.hide_n_seek))
+        items.add(ImageObject("Laundry Day", R.drawable.laundry))
+        items.add(ImageObject("Getting Cuddly", R.drawable.cuddles))
+        items.add(ImageObject("Ordering Takeout", R.drawable.food_prep))
+        items.add(ImageObject("Confused", R.drawable.shocked))
+        items.add(ImageObject("Sleepy", R.drawable.sleepy))
+        items.add(ImageObject("Hunter", R.drawable.stalker))
+        items.add(ImageObject("Tunneling Around", R.drawable.tunnel))
+        items.add(ImageObject("Hard at Work", R.drawable.worker))
+
+        return items
     }
 }
-
-/*
-* define listener in activity
-* pass it to adapter
-*
-* class ImageAdapter(): RecyclerView.Adapter<ImageAdapter.ImageViewHolder>(){
-*   class ImageViewHolder(_imageView: ImageView):RecyclerView.ViewHolder(_imageView){
-*      val imageView = _imageView
-*   }
-*
-*   onCreateViewHolder(parent:ViewGroup, viewType:Int:imageViewHOlder{
-*       val imageView = ImageView(parent.context)
-*   return ImageViewHolder(imageView)
-*   }
-*
-*   onBindViewHolder(holder: ImageViewHolder, position: Ine){
-*
-*   }
-* getItemCount
-* }
-*
-* class Stack<T>(t: T){
-*   val someValue = t
-*
-*   fun pop() : T{
-*       return someValue
-*   }
-*   fun push(t:T){
-*       someValue = t
-*   }
-*
-*}
-*
-*
-*
-* myStack = Stack<String>("hello")
-* myStack.push
-* */
